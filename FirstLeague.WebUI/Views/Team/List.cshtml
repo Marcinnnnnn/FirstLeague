@@ -1,0 +1,16 @@
+﻿@using FirstLeague.Domain.Entities
+@model IEnumerable<Team>
+
+@{
+    ViewBag.Title = "Drużyny";
+}
+
+@foreach (var d in Model)
+{
+    <div>
+        <h3>@d.Name</h3>
+        <h4>@d.Score</h4>
+    </div>
+}
+
+
