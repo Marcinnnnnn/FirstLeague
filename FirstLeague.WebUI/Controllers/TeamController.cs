@@ -12,9 +12,9 @@ namespace FirstLeague.WebUI.Controllers
     {
         private ITeamRepository repository;
         
-        public TeamController(ITeamRepository teamrepository)
+        public TeamController(ITeamRepository teamRepository)
         {
-            this.repository = teamrepository;
+            this.repository = teamRepository;
         }
 
         public ViewResult List()

@@ -6,6 +6,7 @@ using Ninject;
 using Moq;
 using FirstLeague.Domain.Abstract;
 using FirstLeague.Domain.Entities;
+using FirstLeague.Domain.Concrete;
 
 namespace FirstLeague.WebUI.Infrastructure
 {
@@ -31,13 +32,14 @@ namespace FirstLeague.WebUI.Infrastructure
 
         private void AddBindings()
         {
-            Mock<ITeamRepository> mock = new Mock<ITeamRepository>();
-            mock.Setup(m => m.Teams).Returns(new List<Team> {
-                new Team { Name = "Legia", Score = 40},
-                new Team { Name ="Lech", Score = 10 }
-                });
+            //Mock<ITeamRepository> mock = new Mock<ITeamRepository>();
+            //mock.Setup(m => m.Teams).Returns(new List<Team> {
+            //    new Team { Name = "Legia", Score = 40},
+            //    new Team { Name ="Lech", Score = 10 }
+            //    });
 
-            kernel.Bind<ITeamRepository>().ToConstant(mock.Object);                
+            //kernel.Bind<ITeamRepository>().ToConstant(mock.Object);                
+            kernel.Bind<ITeamRepository>().To<EFTeamRepository>();
         }
     }
 }
