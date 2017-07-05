@@ -1,5 +1,4 @@
-﻿
-namespace FirstLeague.Domain.Entities
+﻿namespace FirstLeague.Domain.Entities
 {
     public class Team
     {
@@ -9,5 +8,7 @@ namespace FirstLeague.Domain.Entities
         public int Draw { get; set; }
         public int Defeat { get; set; }
         public int Score { get; set; }
+        public int GoalS { get; set; }
+        public int GoalL { get; set; }
     }
 }

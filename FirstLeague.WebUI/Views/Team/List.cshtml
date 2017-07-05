@@ -1,14 +1,38 @@
-﻿@using FirstLeague.Domain.Entities
-@model IEnumerable<Team>
+﻿@model FirstLeague.WebUI.Models.TeamViewListModel
 
 @{
     ViewBag.Title = "Drużyny";
 }
 
-@foreach (var d in Model)
-{
-    <div>
-        <h3>@d.Name</h3>
-        <h4>@d.Score</h4>
-    </div>
-}
+<h2>Tabela wyników:</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-left">Nazwa Drużyny:</th>
+            <th class="text-left">Punkty</th>
+            <th class="text-left">Wygrana</th>
+            <th class="text-left">Remis</th>
+            <th class="text-left">Przegrana</th>
+            <th class="text-left">Bramki Strzelone</th>
+            <th class="text-left">Bramki Stracone</th>            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var d in Model.Teams)
+        {
+            <tr>
+                <td class="text-left">@d.Name</td>
+                <td class="text-left">@d.Score</td>
+                <td class="text-left">@d.Win</td>
+                <td class="text-left">@d.Draw</td>
+                <td class="text-left">@d.Defeat</td>
+                <td class="text-left">@d.GoalS</td>
+                <td class="text-left">@d.GoalL</td>                
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>   
+    @Html.PageLings(Model.PagingInfo, x => Url.Action("List", new { Page = x }))
+</div>

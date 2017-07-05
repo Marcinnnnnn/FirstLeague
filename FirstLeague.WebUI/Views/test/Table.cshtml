@@ -1,0 +1,30 @@
+﻿@model FirstLeague.WebUI.Models.TeamViewListModel
+
+@{
+    ViewBag.Title = "Ekstraklasa: Tabela";
+}
+
+<h2>Tabela wyników:</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nazwa Drużyny:</th>
+            <th class="text-right">Punkty:</th>
+            <th class="text-right">Wygrana:</th>
+            <th class="text-right">Remis:</th>
+            <th class="text-right">Przegrana:</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var d in Model.Teams)
+        {
+            <tr>
+                <td class="text-center">@d.Name</td>
+                <td class="text-center">@d.Score</td>
+                <td class="text-center">@d.Win</td>
+                <td class="text-center">@d.Draw</td>
+                <td class="text-center">@d.Defeat</td>
+            </tr>
+        }
+    </tbody>
+</table>

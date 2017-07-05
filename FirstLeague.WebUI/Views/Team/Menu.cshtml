@@ -1,0 +1,36 @@
+﻿@model FirstLeague.WebUI.Models.TeamViewListModel
+
+@{
+    ViewBag.Title = "Drużyny";
+}
+
+<h2>Tabela wyników:</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-left">Nazwa Drużyny:</th>            
+            <th class="text-left">Bramki Strzelone</th>
+            <th class="text-left">Bramki Stracone</th>
+            <th class="text-left">Różnica bramek</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var d in Model.Teams)
+        {
+            if ((int)d.GoalS - (int)d.GoalL >= 0)
+            {
+                int w = @d.GoalS - @d.GoalL;
+                <tr>
+                    <td class="text-left">@d.Name</td>                   
+                    <td class="text-left">@d.GoalS</td>
+                    <td class="text-left">@d.GoalL</td>
+                    <td class="text-left">@w</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<div class="btn btn-default">
+    @Html.ActionLink("Powrót", "List")
+</div>
