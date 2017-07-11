@@ -1,0 +1,348 @@
+﻿
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body 
+{
+    /* Background pattern from Subtle Patterns */
+    background-image: url("../img/paper_1.png");
+    color: #ffffff;
+    font-size: 20px;    
+}
+
+.wrapper
+{    
+    width:100%;
+    font-family: 'Times New Roman', Arial;
+}
+
+.header
+{
+    font-family: 'Lemonada', cursive;
+    width:100%;
+    padding: 40px 0;
+}
+
+.logo
+{
+    width:980px;
+    margin:10px;
+    font-size:48px;    
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#logoL
+{    
+    color:#000000;
+    float:left;  
+    font-size:80px;
+    width:700px;   
+    text-align:center;
+}
+
+#clock
+{
+  font: small-caps bold 40px/200% Arial, Helvetica, sans-serif;
+  text-align:right;
+  width:170px;  
+  margin: 2px auto;
+  color:#000000;
+  border-left: 11px solid #3095d3;
+  padding: 9px;
+
+  float:left;
+}
+
+.sizePhoto
+{       
+    margin-top:60px;
+    margin-bottom:40px;
+    width:1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#photosL
+{ 
+    text-align:left;
+    float:left;
+}
+
+#photosR
+{        
+    text-align:right;
+    float:left;
+}
+
+.nav
+{
+       font-family: 'Times New Roman', Arial;
+       width:100%;
+       text-align:center;
+       background-color:#000000;
+}
+
+.allBar
+{
+    width:1000px;    
+    background-color:#000000;
+    text-align:center;
+    border-top:1px solid #751b1b;
+    border-bottom:1px solid #751b1b;
+    margin-left:auto;
+    margin-right:auto;    
+}
+
+.navMenu
+{   
+    padding: 3px 0;
+    text-align:left;
+    width:750px;
+    float:left;
+}
+
+.navSocial
+{          
+    text-align:right;       
+    width:250px;
+    float:left;
+}
+
+.content
+{
+    color:#000000;
+    margin-left:auto;
+    margin-right:auto;
+    width:1000px;
+    text-align:justify;
+    padding-top:10px;
+}
+
+.social
+{
+    width:100%;
+    text-align:center;
+    background-color:#292929;
+}
+
+.socialdivs
+{
+    width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.fb
+{
+    width: 55px;
+    height: 55px;
+    float:left;
+}
+
+.fb:hover
+{
+    background-color:#4668b3;
+    cursor: pointer;
+}
+
+.yt
+{
+    width: 55px;
+    height: 55px;
+    float:left;
+}
+
+.yt:hover
+{
+    background-color:#d94348;
+    cursor: pointer;
+}
+
+.tw
+{
+    width: 55px;
+    height: 55px;
+    float:left;
+}
+
+.tw:hover
+{
+    background-color:#3095d3;
+    cursor: pointer;
+}
+
+.gplus
+{
+    width: 55px;
+    height: 55px;
+    float:left;
+}
+
+.gplus:hover
+{
+    background-color:#d95333;
+    cursor: pointer;
+}
+
+a.sociallink
+{
+    color:#ffffff;
+    text-decoration:none;
+    display:block;    
+}
+
+.footer
+{
+    text-align:center;
+    background-color:#333333;
+    padding: 30px;
+}
+
+.sticky
+{
+    width:100%;
+    position:fixed;
+    left:0;
+    top:0;
+    z-index:100;
+}
+
+ol
+{
+    padding:0;
+    margin:0;
+    list-style:none;
+    font-size:24px;
+    height:30px;
+    line-height:200%;
+    display:inline-block;   
+}
+
+ol a
+{
+    color:white;
+    text-decoration:none;    
+    display:block;
+}
+
+ol > li
+{
+    float:left;
+    text-align:center;
+    width:140px;
+    height:40px;
+}
+
+
+/*ol > li :first-child
+{
+    
+}*/
+
+ol > li :hover
+{
+    background-color:#999999;
+}
+
+ol > li:hover > a
+{
+    color:#451717;
+}
+
+ol > li > ul
+{
+    list-style-type:none;
+    padding:0;
+    margin:0;
+    height:40px;
+    display:none;
+}
+
+ol > li:hover > ul
+{
+    display: block;
+}
+
+ol > li > ul > li 
+{
+    background-color:#777777;
+    position:relative;
+    z-index:100;
+    border-top: 1px solid #ffffff;
+}
+
+ol > li > ul > li:hover
+{
+    background-color:#999999;
+}
+
+ol > li > ul > li:hover > a
+{
+    color:#ffffff;
+}
+
+.backToTop 
+{
+    padding: 15px 21px;
+    border: none;
+    border-radius: 10px;
+    background:#000000;
+
+    opacity: 1;
+    -webkit-transition: visibility 0.2s, opacity 0.2s;
+    transition: visibility 0.2s, opacity 0.2s;
+
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    cursor: pointer;
+
+    font: 14px/1 Tahoma, Arial, sans-serif;
+    color: #ffffff;
+}
+
+.backToTop.hidden 
+{
+    opacity: 0;
+    visibility: hidden;
+}
+
+h2
+{
+    padding:20px;
+    width:1000px;
+    color:black;
+    text-align:center;
+    border-top: 2px dashed #050080;
+    margin-top:35px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.table
+{
+    color:black; 
+    text-align:center; 
+    width:1000px;    
+    margin-top:10px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:130px;
+}
+
+tr > td
+{    
+    line-height:50px;
+    border-bottom:1px double #999999;
+}
+
+tr > th
+{
+    line-height:5;
+    border-bottom:2px double #777777;
+}

@@ -1,38 +1,201 @@
 ﻿@model FirstLeague.WebUI.Models.TeamViewListModel
 
 @{
-    ViewBag.Title = "Drużyny";
+	ViewBag.Title = "Drużyny";
 }
 
-<h2>Tabela wyników:</h2>
-<table class="table">
-    <thead>
-        <tr>
-            <th class="text-left">Nazwa Drużyny:</th>
-            <th class="text-left">Punkty</th>
-            <th class="text-left">Wygrana</th>
-            <th class="text-left">Remis</th>
-            <th class="text-left">Przegrana</th>
-            <th class="text-left">Bramki Strzelone</th>
-            <th class="text-left">Bramki Stracone</th>            
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var d in Model.Teams)
-        {
-            <tr>
-                <td class="text-left">@d.Name</td>
-                <td class="text-left">@d.Score</td>
-                <td class="text-left">@d.Win</td>
-                <td class="text-left">@d.Draw</td>
-                <td class="text-left">@d.Defeat</td>
-                <td class="text-left">@d.GoalS</td>
-                <td class="text-left">@d.GoalL</td>                
-            </tr>
-        }
-    </tbody>
-</table>
 
-<div>   
-    @Html.PageLings(Model.PagingInfo, x => Url.Action("List", new { Page = x }))
-</div>
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<title>Ekstraklasa</title>
+	<meta charset="utf-8" />
+
+	<link href="~/Css/Style.css" rel="stylesheet" type="text/css" />
+	<script src="~/JavaScript/JavaScript.js" type="text/javascript"></script>
+	<script src="~/Scripts/bootstrap.min.js" type="text/javascript"></script>
+	<link href="~/Css/fontello.css" type="text/css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Lemonada&amp;subset=latin-ext" rel="stylesheet">
+
+</head>
+<body onload="nextPhotoL(); nextPhotoR(); countingDown(); createButton();">
+	<div class="wrapper">
+		<div class="header">
+			<div class="logo">
+				<div id="logoL"><span style="color:#0094ff">Ekstra</span>Klasa</div>
+				<div id="clock">nie działa</div>
+				<div style="clear:both;"></div>
+			</div>
+		</div>
+		<div class="nav">
+			<div class="allBar">
+				<div class="navMenu">
+					<ol>
+						<li><a href="#">Strona główna</a></li>
+						<li>
+							<a href="#">Terminarz</a>
+							<ul>
+								<li><a href="#">brak</a></li>
+								<li><a href="#">brak</a></li>								
+							</ul>
+						</li>
+						<li>
+							<a href="#">Tabela</a>
+							
+							<ul>
+								<li><a href="#" style="font-size:15px;">@Html.ActionLink("Bramki +", "Menu")</a></li>								
+							</ul>
+						</li>
+						<li>
+							<a href="#">Strzelcy</a>
+							<ul>
+								<li><a href="#">brak</a></li>
+								<li><a href="#">brak</a></li>
+								<li><a href="#">brak</a></li>								
+							</ul>
+						</li>
+						<!--<li>
+							<a href="#">Najlepsi Sterzelcy</a>
+							<ul>
+								<li><a href="#">p</a></li>
+								<li><a href="#">o</a></li>
+								<li><a href="#">i</a></li>
+								<li><a href="#">u</a></li>
+							</ul>
+						</li>-->
+						<li>
+							<a href="#">Wyniki</a>
+							<ul>
+								<li><a href="#">brak</a></li>
+							</ul>
+						</li>
+					</ol>
+				</div>
+				<div class="navSocial">
+
+					<div class="fb">
+						<a href="https://www.facebook.com/profile.php?id=100002489626136&ref=bookmarks" class="sociallink" target="_blank">
+							<i class="icon-facebook"></i>
+						</a>
+					</div>
+					<div class="yt">
+						<a href="https://www.youtube.com" class="sociallink" target="_blank">
+							<i class="icon-youtube"></i>
+						</a>
+					</div>
+					<div class="tw">
+						<a href="https://twitter.com/MarcinLach_" class="sociallink" target="_blank">
+							<i class="icon-twitter"></i>
+						</a>
+					</div>
+					<div class="gplus">
+						<a href="https://google.pl" class="sociallink" target="_blank">
+							<i class="icon-gplus"></i>
+						</a>
+					</div>
+					<div style="clear:both"></div>
+				</div>
+				<div style="clear:both;"></div>
+			</div>
+		</div>
+
+
+		<div class="sizePhoto">
+			<div id="photosL"></div>
+			<div id="photosR"></div>
+			<div style="clear:both;"></div>
+		</div>
+
+		<div class="content">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat nulla at est pharetra pulvinar. Duis auctor enim turpis, iaculis luctus risus tempor ut. Phasellus vel nunc sapien. Donec aliquet felis a sem cursus congue. Maecenas et est finibus, tincidunt sapien quis, imperdiet risus. Quisque luctus porta laoreet. Donec sapien arcu, imperdiet non enim vitae, scelerisque cursus urna. In pharetra erat eu urna ornare aliquet. Suspendisse potenti. Nulla vel placerat nisi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed vel malesuada tortor, eu feugiat nisi. Aliquam congue dignissim libero eu viverra. Pellentesque ut luctus justo. Duis rutrum sed tortor et interdum. Mauris sit amet vestibulum urna.</p>
+
+			<p>Sed vel nibh tellus. Proin facilisis magna non elementum aliquam. Cras quis mi et erat fermentum consequat a sed tortor. Phasellus interdum egestas varius. Praesent euismod odio odio, vel feugiat ante molestie a. Donec ligula turpis, condimentum ut pharetra eget, mollis fringilla magna. Pellentesque consectetur arcu purus, quis dapibus nunc facilisis a. Nullam vitae vulputate mi. Pellentesque in odio molestie, vestibulum urna a, consequat nunc. Nulla tincidunt libero sit amet enim rhoncus dignissim. Integer non odio tempor, finibus neque ac, imperdiet nisl. Vestibulum elementum sem ut ex imperdiet tristique. Aliquam non mollis sem, non mollis sapien. Vivamus rutrum cursus erat.</p>
+
+			<p>Fusce quis justo est. Nam ullamcorper dolor at dolor euismod, vel accumsan sapien pharetra. In turpis magna, facilisis ac egestas vitae, imperdiet at velit. Fusce sollicitudin ultricies purus, et fermentum ante pellentesque vitae. Duis elementum sed eros vitae elementum. Suspendisse egestas, turpis non ultrices ullamcorper, erat est finibus velit, nec eleifend eros libero sit amet ante. Praesent sagittis commodo libero et finibus.</p>
+
+			<p>Aenean enim arcu, pulvinar a tortor eu, posuere venenatis mauris. Mauris sit amet dolor nunc. Sed ex arcu, fermentum vel dictum a, euismod a risus. Mauris id fermentum ipsum. Phasellus euismod nunc fermentum, finibus leo eu, lacinia metus. Maecenas ligula enim, laoreet in imperdiet eget, vulputate at lacus. Donec accumsan nisi eget rutrum congue. Suspendisse magna augue, aliquet non magna a, bibendum bibendum odio. Proin pharetra orci lorem, non luctus ipsum laoreet id. Maecenas at ex eget diam porta facilisis ut lacinia massa. Phasellus convallis id ipsum quis iaculis. Aenean posuere id nisl eget dictum. Quisque convallis elementum metus et maximus. Fusce dui lacus, cursus eget sollicitudin at, aliquam sit amet lacus.</p>
+
+			<p>Nam convallis, turpis ut feugiat gravida, erat sem facilisis justo, et fringilla sapien magna nec orci. Duis rhoncus neque magna, vulputate facilisis est aliquam at. Cras semper hendrerit urna, vitae tempus mauris egestas sit amet. Integer eget convallis lacus. Cras ut mauris tellus. Nullam eget leo sapien. Sed egestas leo urna, sit amet laoreet ex tempus ut. In consequat varius tellus, eget dictum lectus blandit tempor. Aenean viverra eros eros, quis eleifend tellus viverra a. In tincidunt varius tristique. Vestibulum scelerisque diam ut lorem semper imperdiet. Integer vestibulum justo et neque sodales vestibulum. Etiam fermentum lectus ac nunc pretium, et viverra eros facilisis.</p>
+
+			<p>Aenean vestibulum leo quis magna sollicitudin iaculis. Phasellus vehicula ligula massa, a rhoncus leo suscipit et. Ut tincidunt malesuada justo sed vehicula. Curabitur aliquam volutpat velit, quis faucibus odio sodales sed. Morbi et eleifend orci. Etiam eros leo, malesuada elementum eros sit amet, dignissim tempor ex. Nulla tellus tellus, accumsan sodales urna a, aliquet dapibus erat. Proin vitae elit quis enim ultricies ornare quis volutpat arcu. Mauris nec mollis risus, eget placerat nisi. Aenean feugiat arcu sit amet dictum pellentesque. Maecenas ac mi scelerisque, volutpat dolor a, mattis ante. Duis eget est nec dui scelerisque rhoncus at nec nisl.</p>
+
+			<p>Suspendisse at efficitur odio, eu lobortis dolor. Ut sem diam, aliquet nec pellentesque in, rutrum eu augue. Mauris pharetra mi nisi, ac interdum augue suscipit nec. Curabitur quis ante vitae orci sagittis commodo. Nulla in nisi sit amet quam pretium tempus. Ut eleifend magna enim, vel gravida turpis cursus pellentesque. Etiam in purus eu odio rhoncus dapibus sagittis sit amet tellus. Suspendisse tempus molestie est, in laoreet est mollis quis. Nam pellentesque orci sit amet sollicitudin varius. Cras gravida viverra lorem, ut molestie augue venenatis in. Cras posuere nulla dolor, vel tincidunt dolor dictum sit amet. Sed venenatis elit eget est auctor, suscipit volutpat risus feugiat. Nullam feugiat sagittis enim, in malesuada augue varius ac. Maecenas lacinia fringilla justo in efficitur. Proin vitae tincidunt massa, nec accumsan ex. Ut ut euismod nisl, condimentum dignissim leo.</p>
+
+			<p>Proin maximus urna feugiat massa vehicula molestie. Suspendisse posuere ullamcorper sapien, et aliquet ante mattis nec. Proin aliquet mauris eu magna dignissim, ac finibus odio porttitor. Donec odio velit, iaculis in accumsan sit amet, condimentum porttitor magna. Duis quis ornare lorem. Vestibulum quis mauris et ligula tempus imperdiet vel ac nisl. Aliquam placerat sit amet eros non rhoncus. Sed eu risus in nisi maximus pulvinar. Aliquam a convallis lorem. Suspendisse tempor metus metus, eget posuere quam imperdiet quis. Pellentesque pulvinar odio at diam elementum, vitae fringilla enim vulputate. Proin nulla neque, dictum eu metus fringilla, fermentum porta lorem. Maecenas dapibus sapien id nisl congue placerat.</p>
+
+			<p> eget iaculis nulla. In in urna augue. Proin fringilla lacinia mauris non mollis. Duis nec magna convallis, vulputate massa eget, suscipit nisl. Morbi sit amet ex eget arcu volutpat lacinia ut vitae nibh. Nunc volutpat quis diam eget maximus. Nulla non lacus nisl. Morbi vitae lorem lacus. Maecenas nec lectus sed augue tempus malesuada non sit amet dolor.</p>
+
+		</div>
+
+		<!--<div class="social">
+			<div class="socialdivs">
+				<div class="fb"><i class="icon-facebook"></i></div>
+				<div class="yt"><i class="icon-youtube"></i></div>
+				<div class="tw"><i class="icon-twitter"></i></div>
+				<div class="gplus"><i class="icon-gplus"></i></div>
+				<div style="clear:both"></div>
+			</div>
+		</div>-->
+
+		<h2>Tabela wyników:</h2>
+		<table class="table">
+			<thead>
+				<tr>
+					<th class="text-left">Nazwa Drużyny:</th>
+					<th class="text-left">Punkty</th>
+					<th class="text-left">Wygrana</th>
+					<th class="text-left">Remis</th>
+					<th class="text-left">Przegrana</th>
+					<th class="text-left">Bramki Strzelone</th>
+					<th class="text-left">Bramki Stracone</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var d in Model.Teams)
+				{
+					<tr>
+						<td class="text-left">@d.Name</td>
+						<td class="text-left">@d.Score</td>
+						<td class="text-left">@d.Win</td>
+						<td class="text-left">@d.Draw</td>
+						<td class="text-left">@d.Defeat</td>
+						<td class="text-left">@d.GoalS</td>
+						<td class="text-left">@d.GoalL</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+
+
+		<div class="footer">
+			&copy; 2017
+		</div>
+
+
+
+		<script src="~/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+		<script>
+			$(document).ready(function () {
+				var NavY = $('.nav').offset().top;
+
+				var stickyNav = function () {
+					var ScrollY = $(window).scrollTop();
+					if (ScrollY > NavY) {
+						$('.nav').addClass('sticky');
+					} else {
+						$('.nav').removeClass('sticky');
+					}
+				};
+				stickyNav();
+				$(window).scroll(function () {
+					stickyNav();
+				});
+			});
+
+		</script>
+
+	</div>
+	<script src="~/JavaScript/JavaScript.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿@*<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -8,18 +8,20 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div class="navbar" style="background-color: darkgreen">
-        <a class="navbar-brand" style="color: white" href="#">Ekstraklasa sezon 2016/2017</a>
-    </div>
-    <div class="row panel">
-        <div id="categories" class="col-xs-3">            
-            <span class = "btn btn-block btn-default btn-lg">                
-                @Html.ActionLink("Dodatni wynik bramek(strzelone-stracone)", "Menu")
-            </span>
+        <div class="navbar" style="background-color: darkgreen">
+            <a class="navbar-brand" style="color: white" href="#">Ekstraklasa sezon 2016/2017</a>
         </div>
-        <div class="col-xs-8">
-            @RenderBody()
+        <div class="row panel">
+            <div id="categories" class="col-xs-3">
+                <span class = "btn btn-block btn-default btn-lg">
+                    @Html.ActionLink("Dodatni wynik bramek(strzelone-stracone)", "Menu")
+                </span>
+            </div>
+            <div class="col-xs-8">
+                @RenderBody()
+            </div>
         </div>
-    </div>
-</body>
-</html>
+    </body>
+</html>*@
+
+@RenderBody()
